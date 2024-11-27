@@ -1,0 +1,17 @@
+name: Setup web-based terminal
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Session name'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v3
+  
+      - name: Setup sshx
+        run: curl -sSf https://sshx.io/get | sh -s run
